@@ -2,6 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ApiWorldCup.Data.Repositories.Player;
+using ApiWorldCup.Data.Repositories.Team;
+using EFCore.ApiWorldCup.Data;
+using EFCore.ApiWorldCup.Data.Repositories;
 //using EFCore.ApiWorldCup.Data;
 //using EFCore.ApiWorldCup.Data.Repositories;
 using Microsoft.AspNetCore.Builder;
@@ -45,8 +49,9 @@ namespace EFCore.ApiWorldCup
             services.AddDbContext<ApplicationContext>(p => p.UseSqlServer(@"Data Source=DESKTOP-RTPBNVC\SQLEXPRESS;Initial Catalog=WorldCup;Integrated Security=True;")
             );
 
-            //services.AddScoped<IDepartamentoRepository, DepartamentoRepository>();
-            //services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<ITeamRepository, TeamRepository>();
+            services.AddScoped<IPlayerRepository, PlayerRepository>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

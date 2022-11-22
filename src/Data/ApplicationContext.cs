@@ -5,8 +5,8 @@ namespace src.Data
 {
     public class ApplicationContext : DbContext
     {
-        public DbSet<Player> Departamentos { get; set; }
-        public DbSet<Team> Colaboradores { get; set; }
+        public DbSet<PlayerEntity> Players { get; set; }
+        public DbSet<TeamEntity> Teams { get; set; }
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
