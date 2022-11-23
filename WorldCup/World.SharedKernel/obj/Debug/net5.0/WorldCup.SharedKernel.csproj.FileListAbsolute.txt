@@ -1,0 +1,15 @@
+C:\Users\marin\OneDrive\Área de Trabalho\WorldCup\World.SharedKernel\bin\Debug\net5.0\WorldCup.SharedKernel.deps.json
+C:\Users\marin\OneDrive\Área de Trabalho\WorldCup\World.SharedKernel\bin\Debug\net5.0\WorldCup.SharedKernel.runtimeconfig.json
+C:\Users\marin\OneDrive\Área de Trabalho\WorldCup\World.SharedKernel\bin\Debug\net5.0\WorldCup.SharedKernel.runtimeconfig.dev.json
+C:\Users\marin\OneDrive\Área de Trabalho\WorldCup\World.SharedKernel\bin\Debug\net5.0\WorldCup.SharedKernel.dll
+C:\Users\marin\OneDrive\Área de Trabalho\WorldCup\World.SharedKernel\bin\Debug\net5.0\WorldCup.SharedKernel.pdb
+C:\Users\marin\OneDrive\Área de Trabalho\WorldCup\World.SharedKernel\obj\Debug\net5.0\WorldCup.SharedKernel.csproj.AssemblyReference.cache
+C:\Users\marin\OneDrive\Área de Trabalho\WorldCup\World.SharedKernel\obj\Debug\net5.0\WorldCup.SharedKernel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\marin\OneDrive\Área de Trabalho\WorldCup\World.SharedKernel\obj\Debug\net5.0\WorldCup.SharedKernel.AssemblyInfoInputs.cache
+C:\Users\marin\OneDrive\Área de Trabalho\WorldCup\World.SharedKernel\obj\Debug\net5.0\WorldCup.SharedKernel.AssemblyInfo.cs
+C:\Users\marin\OneDrive\Área de Trabalho\WorldCup\World.SharedKernel\obj\Debug\net5.0\WorldCup.SharedKernel.csproj.CoreCompileInputs.cache
+C:\Users\marin\OneDrive\Área de Trabalho\WorldCup\World.SharedKernel\obj\Debug\net5.0\WorldCup.SharedKernel.dll
+C:\Users\marin\OneDrive\Área de Trabalho\WorldCup\World.SharedKernel\obj\Debug\net5.0\refint\WorldCup.SharedKernel.dll
+C:\Users\marin\OneDrive\Área de Trabalho\WorldCup\World.SharedKernel\obj\Debug\net5.0\WorldCup.SharedKernel.pdb
+C:\Users\marin\OneDrive\Área de Trabalho\WorldCup\World.SharedKernel\obj\Debug\net5.0\WorldCup.SharedKernel.genruntimeconfig.cache
+C:\Users\marin\OneDrive\Área de Trabalho\WorldCup\World.SharedKernel\obj\Debug\net5.0\ref\WorldCup.SharedKernel.dll
