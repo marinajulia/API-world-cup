@@ -21,20 +21,18 @@ namespace WorldCup.Api.Controllers.Player
             _uow = uow;
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("findbyid{id}")]
         public async Task<IActionResult> GetByIdAsync(int id)
         {
-            //var departamento = await _departamentoRepository.GetByIdAsync(id);
             var departamento = await _uow.PlayerRepository.GetByIdAsync(id);
 
             return Ok(departamento);
         }
 
-        [HttpGet("{name}")]
-        public async Task<IActionResult> GetByNameAsync(int id)
+        [HttpGet("findbyname/{name}")]
+        public async Task<IActionResult> GetByNameAsync(int name)
         {
-            //var departamento = await _departamentoRepository.GetByIdAsync(id);
-            var departamento = await _uow.PlayerRepository.GetByIdAsync(id);
+            var departamento = await _uow.PlayerRepository.GetByIdAsync(name);
 
             return Ok(departamento);
         }
