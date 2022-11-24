@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WorldCup.Domain.Service.Player;
+using WorldCup.Domain.Service.Player.Entity;
 using WorldCup.Infra.Data;
 using WorldCup.Infra.Repositories.Base;
 

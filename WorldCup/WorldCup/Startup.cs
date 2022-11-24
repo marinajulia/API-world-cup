@@ -11,6 +11,7 @@ using WorldCup.Infra.Data;
 using WorldCup.Infra.Repositories.Player;
 using WorldCup.Infra.Repositories.Team;
 using WorldCup.Infra.Repositories.UnitOfWork;
+using WorldCup.Infra.UnitOfWork;
 
 namespace WorldCup
 {

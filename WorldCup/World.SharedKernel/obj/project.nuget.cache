@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oZ4pbeQxxEF3lBNasmIRQHiJhn16r6o1qnqN2NBPq8nuNdspEzwH/lRIZBsi4d6bYX+5j6gln5PN8PmrpgtPYA==",
+  "dgSpecHash": "cwILe3+jm1ydLRvbFB6Xp46Ahg/TTfNEtjvhViUX5MusJkj8i8dnL7B6bmJROBULLRa2bBJ9zJmXA9wGll9h4Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\marin\\OneDrive\\Área de Trabalho\\WorldCup\\World.SharedKernel\\WorldCup.SharedKernel.csproj",
+  "projectFilePath": "C:\\Users\\marin\\OneDrive\\Área de Trabalho\\github\\API-world-cup\\WorldCup\\World.SharedKernel\\WorldCup.SharedKernel.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\marin\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\marin\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.0.0\\microsoft.aspnetcore.jsonpatch.3.0.0.nupkg.sha512",

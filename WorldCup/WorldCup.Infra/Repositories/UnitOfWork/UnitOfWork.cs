@@ -1,9 +1,9 @@
-﻿
-using WorldCup.Infra.Data;
+﻿using WorldCup.Infra.Data;
 using WorldCup.Infra.Repositories.Player;
 using WorldCup.Infra.Repositories.Team;
+using WorldCup.Infra.Repositories.UnitOfWork;
 
-namespace WorldCup.Infra.Repositories.UnitOfWork
+namespace WorldCup.Infra.UnitOfWork
 {
     public class UnitOfWork : IUnitOfWork
     {

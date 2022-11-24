@@ -1,4 +1,4 @@
-﻿using WorldCup.Domain.Service.Player;
+﻿using WorldCup.Domain.Service.Player.Entity;
 using WorldCup.Infra.Repositories.Base;
 
 namespace WorldCup.Infra.Repositories.Player

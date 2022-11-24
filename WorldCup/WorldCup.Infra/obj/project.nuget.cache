@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Nejrrh6vojWv+3bnn7piBPpyBfDsF04GFcVaKSYGG7/88+ZwD9npBhzuT4kUxhV66q10WJ7Kg6qoczuLtXEPWw==",
+  "dgSpecHash": "FCsqT+5RDgQPRSumaIxxXI3RSlxlwT8pUbzpXza8WXetuZj7n5A/0nGzmCcbcpXwcipY74zD7WlAvljvydbU4g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\marin\\OneDrive\\Área de Trabalho\\WorldCup\\WorldCup.Infra\\WorldCup.Infra.csproj",
+  "projectFilePath": "C:\\Users\\marin\\OneDrive\\Área de Trabalho\\github\\API-world-cup\\WorldCup\\WorldCup.Infra\\WorldCup.Infra.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\marin\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\marin\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.0.0\\microsoft.aspnetcore.jsonpatch.3.0.0.nupkg.sha512",

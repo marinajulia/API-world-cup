@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using WorldCup.Domain.Service.Player;
-using WorldCup.Domain.Service.Team;
+using WorldCup.Domain.Service.Player.Entity;
+using WorldCup.Domain.Service.Team.Entity;
 
 namespace WorldCup.Infra.Data
 {

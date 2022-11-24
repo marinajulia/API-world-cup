@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WorldCup.Domain.Service.Team;
+using WorldCup.Domain.Service.Team.Entity;
 
-namespace WorldCup.Domain.Service.Player
+namespace WorldCup.Domain.Service.Player.Entity
 {
     public class PlayerEntity
     {
