@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace WorldCup.Infra.Repositories.Base
@@ -15,7 +14,6 @@ namespace WorldCup.Infra.Repositories.Base
         void Update(T entity);
 
         Task<T> GetByIdAsync(int id);
-        //esse abaixo é mais flexível, serve para ser passada uma expressão dentro dele
         Task<T> FirstAsync(Expression<Func<T, bool>> expression);
         Task<int> CountAsync(Expression<Func<T, bool>> expression);
 

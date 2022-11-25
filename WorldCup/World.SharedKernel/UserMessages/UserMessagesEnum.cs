@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 
 namespace WorldCup.SharedKernel.UserMessages
 {
@@ -11,5 +6,11 @@ namespace WorldCup.SharedKernel.UserMessages
     {
         [Description("Não foi possível encontrar o valor procurado.")]
         notFound,
+        [Description("Não foi possível remover o valor.")]
+        couldNotRemove,
+        [Description("Não foi possível atualizar o valor.")]
+        couldNotUpdate,
+        [Description("Não foi possível criar este valor.")]
+        couldNotCreate,
     }
 }
