@@ -9,7 +9,7 @@ namespace WorldCup.SharedKernel.UserMessages
 {
     public enum UserMessagesEnum
     {
-        [Description("String 1")]
-        messageOne,
+        [Description("Não foi possível encontrar o valor procurado.")]
+        notFound,
     }
 }

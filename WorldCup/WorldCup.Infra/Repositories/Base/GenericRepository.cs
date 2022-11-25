@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 using WorldCup.Infra.Data;
 using WorldCup.SharedKernel.Notification;
 using WorldCup.SharedKernel.UserMessages;
-using Microsoft.OpenApi.Extensions;
-using System.ComponentModel;
+using WorldCup.SharedKernel.Helper;
 
 namespace WorldCup.Infra.Repositories.Base
 {
@@ -48,9 +47,9 @@ namespace WorldCup.Infra.Repositories.Base
         public async Task<T> GetByIdAsync(int id)
         {
             var entity = await _dbSet.FindAsync(id);
-            var test = UserMessagesEnum.GetDescription();
+
             if (entity == null)
-                return _notification.AddWithReturn<T>($"Não foi possível encontrar o valor especificado");
+                return _notification.AddWithReturn<T>(UserMessagesEnum.notFound.GetDescription());
             return entity;
         }
 
