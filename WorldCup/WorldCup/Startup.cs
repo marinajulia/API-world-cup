@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using WorldCup.Api.Infra;
 using WorldCup.Infra.Data;
 using WorldCup.Infra.Repositories.Player;
 using WorldCup.Infra.Repositories.Team;
@@ -42,9 +43,8 @@ namespace WorldCup
             services.AddDbContext<ApplicationContext>(p => p.UseSqlServer(@"Data Source=DESKTOP-RTPBNVC\SQLEXPRESS;Initial Catalog=WorldCupAPI;Integrated Security=True;")
             );
 
-            services.AddScoped<ITeamRepository, TeamRepository>();
-            services.AddScoped<IPlayerRepository, PlayerRepository>();
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.Resolve();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

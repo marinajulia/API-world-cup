@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Alunos.SharedKernel.Notification
+namespace WorldCup.SharedKernel.Notification
 {
     public class Notification : INotification
     {

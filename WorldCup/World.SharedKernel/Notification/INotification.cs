@@ -1,4 +1,4 @@
-﻿namespace Alunos.SharedKernel.Notification
+﻿namespace WorldCup.SharedKernel.Notification
 {
     public interface INotification
     {

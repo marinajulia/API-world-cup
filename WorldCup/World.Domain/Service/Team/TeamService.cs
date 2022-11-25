@@ -1,6 +1,6 @@
 ﻿namespace WorldCup.Domain.Service.Team
 {
-    public class TeamService
+    public class TeamService : ITeamService
     {
     }
 }
