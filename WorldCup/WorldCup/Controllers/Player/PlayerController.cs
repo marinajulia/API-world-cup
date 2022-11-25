@@ -25,7 +25,7 @@ namespace WorldCup.Api.Controllers.Player
         public async Task<IActionResult> GetByIdAsync(int id)
         {
             var departamento = await _uow.PlayerRepository.GetByIdAsync(id);
-
+            System.Console.WriteLine(departamento);
             return Ok(departamento);
         }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WorldCup.Domain.Service.Player
 {
-    public class PlayerService
+    public class PlayerService : IPlayerService
     {
     }
 }
