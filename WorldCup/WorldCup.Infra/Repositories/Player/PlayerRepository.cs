@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 using WorldCup.Domain.Service.Player.Entity;
 using WorldCup.Infra.Data;
 using WorldCup.Infra.Repositories.Base;
+using WorldCup.SharedKernel.Notification;
 
 namespace WorldCup.Infra.Repositories.Player
 {
     public class PlayerRepository : GenericRepository<PlayerEntity>, IPlayerRepository
     {
-        public PlayerRepository(ApplicationContext context) : base(context)
+        public PlayerRepository(ApplicationContext context, INotification iNotification) : base(context, iNotification)
         {
         }
     }

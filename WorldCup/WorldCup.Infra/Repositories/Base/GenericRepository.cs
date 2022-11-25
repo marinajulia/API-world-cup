@@ -5,15 +5,22 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using WorldCup.Infra.Data;
+using WorldCup.SharedKernel.Notification;
+using WorldCup.SharedKernel.UserMessages;
+using Microsoft.OpenApi.Extensions;
+using System.ComponentModel;
 
 namespace WorldCup.Infra.Repositories.Base
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         private readonly DbSet<T> _dbSet;
-        public GenericRepository(ApplicationContext context)
+        private readonly INotification _notification;
+
+        public GenericRepository(ApplicationContext context, INotification notification)
         {
             _dbSet = context.Set<T>();
+            _notification = notification;
         }
         public void Add(T entity)
         {
@@ -40,7 +47,11 @@ namespace WorldCup.Infra.Repositories.Base
 
         public async Task<T> GetByIdAsync(int id)
         {
-            return await _dbSet.FindAsync(id);
+            var entity = await _dbSet.FindAsync(id);
+            var test = UserMessagesEnum.GetDescription();
+            if (entity == null)
+                return _notification.AddWithReturn<T>($"Não foi possível encontrar o valor especificado");
+            return entity;
         }
 
         public async Task<System.Collections.Generic.List<T>> GetDataAsync(Expression<Func<T, bool>> expression = null, Func<IQueryable<T>, IIncludableQueryable<T, object>> include = null, int? skip = null, int? take = null)

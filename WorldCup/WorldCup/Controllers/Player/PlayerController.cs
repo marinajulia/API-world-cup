@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 using WorldCup.Infra.Repositories.Player;
 using WorldCup.Infra.Repositories.UnitOfWork;
+using WorldCup.SharedKernel.Notification;
 
 namespace WorldCup.Api.Controllers.Player
 {
@@ -12,21 +13,24 @@ namespace WorldCup.Api.Controllers.Player
     {
         private readonly ILogger<PlayerController> _logger;
         private readonly IUnitOfWork _uow;
-        //private readonly IDepartamentoRepository _departamentoRepository;
+        private readonly INotification _notification;
 
-        public PlayerController(ILogger<PlayerController> logger, IPlayerRepository playerRepository, IUnitOfWork uow)
+        public PlayerController(ILogger<PlayerController> logger, IUnitOfWork uow, INotification notification)
         {
             _logger = logger;
-            //_departamentoRepository = repository;
             _uow = uow;
+            _notification = notification;
         }
 
         [HttpGet("findbyid{id}")]
         public async Task<IActionResult> GetByIdAsync(int id)
         {
-            var departamento = await _uow.PlayerRepository.GetByIdAsync(id);
-            System.Console.WriteLine(departamento);
-            return Ok(departamento);
+            var player = await _uow.PlayerRepository.GetByIdAsync(id);
+
+            if (player == null)
+                return Ok(_notification.GetNotifications());
+
+            return Ok(player);
         }
 
         [HttpGet("findbyname/{name}")]

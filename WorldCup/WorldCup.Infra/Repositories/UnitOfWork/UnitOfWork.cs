@@ -2,15 +2,18 @@
 using WorldCup.Infra.Repositories.Player;
 using WorldCup.Infra.Repositories.Team;
 using WorldCup.Infra.Repositories.UnitOfWork;
+using WorldCup.SharedKernel.Notification;
 
 namespace WorldCup.Infra.UnitOfWork
 {
     public class UnitOfWork : IUnitOfWork
     {
         private readonly ApplicationContext _context;
-        public UnitOfWork(ApplicationContext context)
+        private readonly INotification _notification;
+        public UnitOfWork(ApplicationContext context, INotification notification)
         {
             _context = context;
+            _notification = notification;
         }
 
         //private IDepartamentoRepository _departamentoRepository;
@@ -28,11 +31,11 @@ namespace WorldCup.Infra.UnitOfWork
 
         public IPlayerRepository PlayerRepository
         {
-            get => _playerRepository ?? (_playerRepository = new PlayerRepository(_context));
+            get => _playerRepository ?? (_playerRepository = new PlayerRepository(_context, _notification));
         }
         public ITeamRepository TeamRepository
         {
-            get => _teamRepository ?? (_teamRepository = new TeamRepository(_context));
+            get => _teamRepository ?? (_teamRepository = new TeamRepository(_context, _notification));
         }
 
         public bool Commit()
