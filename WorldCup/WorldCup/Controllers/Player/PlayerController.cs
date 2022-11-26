@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
+using WorldCup.Domain.Service.Player;
 using WorldCup.Infra.Repositories.Player;
 using WorldCup.Infra.Repositories.UnitOfWork;
 using WorldCup.SharedKernel.Notification;
@@ -14,12 +15,14 @@ namespace WorldCup.Api.Controllers.Player
         private readonly ILogger<PlayerController> _logger;
         private readonly IUnitOfWork _uow;
         private readonly INotification _notification;
+        private readonly IPlayerService _playerService;
 
-        public PlayerController(ILogger<PlayerController> logger, IUnitOfWork uow, INotification notification)
+        public PlayerController(ILogger<PlayerController> logger, IUnitOfWork uow, INotification notification, IPlayerService playerService)
         {
             _logger = logger;
             _uow = uow;
             _notification = notification;
+            _playerService = playerService;
         }
 
         [HttpGet("findbyid{id}")]
