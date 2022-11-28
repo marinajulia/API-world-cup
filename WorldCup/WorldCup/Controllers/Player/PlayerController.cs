@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Numerics;
 using System.Threading.Tasks;
 using WorldCup.Domain.Service.Player;
 using WorldCup.Infra.Repositories.Player;
@@ -37,11 +38,14 @@ namespace WorldCup.Api.Controllers.Player
         }
 
         [HttpGet("findbyname/{name}")]
-        public async Task<IActionResult> GetByNameAsync(int name)
+        public IActionResult GetByNameAsync(string name)
         {
-            var departamento = await _uow.PlayerRepository.GetByIdAsync(name);
+            var players = _playerService.GetNames(name);
 
-            return Ok(departamento);
+            if (players == null)
+                return Ok(_notification.GetNotifications());
+
+            return Ok(players);
         }
 
     }

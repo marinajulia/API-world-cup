@@ -12,5 +12,10 @@ namespace WorldCup.SharedKernel.UserMessages
         couldNotUpdate,
         [Description("Não foi possível criar este valor.")]
         couldNotCreate,
+
+        [Description("Time não encontrado")]
+        teamNotFound,
+        [Description("Não foi encontrado nenhum jogador para este time")]
+        playersNotFound,
     }
 }

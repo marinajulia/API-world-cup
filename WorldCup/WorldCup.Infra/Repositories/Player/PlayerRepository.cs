@@ -21,9 +21,9 @@ namespace WorldCup.Infra.Repositories.Player
             return _context.Players.Where(x => x.Name.Trim().ToLower().Contains(name.Trim().ToLower()));
         }
 
-        public PlayerEntity GetNamesByTeam(string name)
+        public IEnumerable<PlayerEntity> GetNamesByTeam(int idTeam)
         {
-            throw new System.NotImplementedException();
+            return _context.Players.Where(x => x.IdTeam == idTeam);
         }
     }
 }
