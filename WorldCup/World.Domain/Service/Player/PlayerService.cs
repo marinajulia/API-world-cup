@@ -38,7 +38,7 @@ namespace WorldCup.Domain.Service.Player
             {
                 Id = x.Id,
                 Name = x.Name,
-                IdTeam = x.IdTeam
+                IdTeam = x.TeamId
             }).ToList();
         }
 
@@ -58,7 +58,7 @@ namespace WorldCup.Domain.Service.Player
             {
                 Id = x.Id,
                 Name = x.Name,
-                IdTeam = x.IdTeam
+                IdTeam = x.TeamId
             }).ToList();
         }
     }

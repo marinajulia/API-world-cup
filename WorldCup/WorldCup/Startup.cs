@@ -9,10 +9,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using WorldCup.Api.Infra;
 using WorldCup.Infra.Data;
-using WorldCup.Infra.Repositories.Player;
-using WorldCup.Infra.Repositories.Team;
-using WorldCup.Infra.Repositories.UnitOfWork;
-using WorldCup.Infra.UnitOfWork;
 
 namespace WorldCup
 {
@@ -40,7 +36,7 @@ namespace WorldCup
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "EFCore.ApiWorldCup", Version = "v1" });
             });
 
-            services.AddDbContext<ApplicationContext>(p => p.UseSqlServer(@"Data Source=DESKTOP-RTPBNVC\SQLEXPRESS;Initial Catalog=WorldCupAPI;Integrated Security=True;")
+            services.AddDbContext<ApplicationContext>(p => p.UseSqlServer(@"Data Source=DESKTOP-RTPBNVC\SQLEXPRESS;Initial Catalog=WorldCupAPI2;Integrated Security=True;")
             );
 
             services.Resolve();

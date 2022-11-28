@@ -23,7 +23,7 @@ namespace WorldCup.Infra.Repositories.Player
 
         public IEnumerable<PlayerEntity> GetNamesByTeam(int idTeam)
         {
-            return _context.Players.Where(x => x.IdTeam == idTeam);
+            return _context.Players.Where(x => x.TeamId == idTeam);
         }
     }
 }

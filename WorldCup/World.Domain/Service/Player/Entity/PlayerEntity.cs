@@ -11,7 +11,7 @@ namespace WorldCup.Domain.Service.Player.Entity
         public string Name { get; set; }
 
         [ForeignKey("Teams")]
-        public int IdTeam { get; set; }
+        public int TeamId { get; set; }
         public TeamEntity Team { get; set; }
     }
 }
