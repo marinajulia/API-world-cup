@@ -6,7 +6,7 @@ namespace WorldCup.Domain.Service.Player
 {
     public interface IPlayerService
     {
-        IEnumerable<PlayerDto> GetNames(string name);
-        Task<IEnumerable<PlayerDto>> GetNamesByTeam(int idTeam);
+        IEnumerable<PlayerTeamDto> GetNames(string name);
+        Task<IEnumerable<PlayerTeamDto>> GetNamesByTeam(int idTeam);
     }
 }

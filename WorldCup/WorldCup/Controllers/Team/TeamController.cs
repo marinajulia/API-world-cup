@@ -48,7 +48,7 @@ namespace WorldCup.Api.Controllers.Team
             return Ok(teams);
         }
 
-        [HttpGet("getname{name}")]
+        [HttpGet("fingbyname{name}")]
         public IActionResult GetByName(string name)
         {
             var team = _teamService.GetName(name);
@@ -59,7 +59,7 @@ namespace WorldCup.Api.Controllers.Team
             return Ok(team);
         }
 
-        [HttpGet("getnameteams{name}")]
+        [HttpGet("getnames{name}")]
         public IActionResult GetNames(string name)
         {
             var teams = _teamService.GetNames(name);

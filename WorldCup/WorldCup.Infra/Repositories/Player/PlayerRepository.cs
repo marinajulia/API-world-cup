@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq;
 using WorldCup.Domain.Service.Player.Entity;
 using WorldCup.Infra.Data;
@@ -18,12 +19,12 @@ namespace WorldCup.Infra.Repositories.Player
 
         public IEnumerable<PlayerEntity> GetNames(string name)
         {
-            return _context.Players.Where(x => x.Name.Trim().ToLower().Contains(name.Trim().ToLower()));
+            return _context.Players.Where(x => x.Name.Trim().ToLower().Contains(name.Trim().ToLower())).Include(x => x.Team);
         }
 
         public IEnumerable<PlayerEntity> GetNamesByTeam(int idTeam)
         {
-            return _context.Players.Where(x => x.TeamId == idTeam);
+            return _context.Players.Where(x => x.TeamId == idTeam).Include(x => x.Team);
         }
     }
 }

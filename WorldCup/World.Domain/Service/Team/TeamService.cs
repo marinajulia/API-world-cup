@@ -52,6 +52,7 @@ namespace WorldCup.Domain.Service.Team
             {
                 Id = teams.Id,
                 Name = teams.Name,
+                Players = teams.Players,
             };
         }
 
@@ -66,6 +67,7 @@ namespace WorldCup.Domain.Service.Team
             {
                 Id = x.Id,
                 Name = x.Name,
+                Players = x.Players,
             }).ToList();
         }
     }

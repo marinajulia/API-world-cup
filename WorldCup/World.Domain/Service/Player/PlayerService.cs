@@ -28,38 +28,40 @@ namespace WorldCup.Domain.Service.Player
             _teamRepository = teamRepository;
             _uow = uow;
         }
-        public IEnumerable<PlayerDto> GetNames(string name)
+        public IEnumerable<PlayerTeamDto> GetNames(string name)
         {
             var players = _playerRepository.GetNames(name);
             
             if(players == null)
-                return _notification.AddWithReturn<IEnumerable<PlayerDto>>(UserMessagesEnum.notFound.GetDescription());
+                return _notification.AddWithReturn<IEnumerable<PlayerTeamDto>>(UserMessagesEnum.notFound.GetDescription());
 
-            return players.Select(x => new PlayerDto
+            return players.Select(x => new PlayerTeamDto
             {
                 Id = x.Id,
                 Name = x.Name,
-                IdTeam = x.TeamId
+                IdTeam = x.TeamId,
+                Team = x.Team.Name
             }).ToList();
         }
 
-        public async Task<IEnumerable<PlayerDto>> GetNamesByTeam(int idTeam)
+        public async Task<IEnumerable<PlayerTeamDto>> GetNamesByTeam(int idTeam)
         {
             var team = await _uow.TeamRepository.GetByIdAsync(idTeam);
 
             if (team == null)
-                return _notification.AddWithReturn<IEnumerable<PlayerDto>>(UserMessagesEnum.teamNotFound.GetDescription());
+                return _notification.AddWithReturn<IEnumerable<PlayerTeamDto>>(UserMessagesEnum.teamNotFound.GetDescription());
 
             var players = _playerRepository.GetNamesByTeam(team.Id);
 
             if (players == null)
-                return _notification.AddWithReturn<IEnumerable<PlayerDto>>(UserMessagesEnum.playersNotFound.GetDescription());
+                return _notification.AddWithReturn<IEnumerable<PlayerTeamDto>>(UserMessagesEnum.playersNotFound.GetDescription());
 
-            return players.Select(x => new PlayerDto
+            return players.Select(x => new PlayerTeamDto
             {
                 Id = x.Id,
                 Name = x.Name,
-                IdTeam = x.TeamId
+                IdTeam = x.TeamId,
+                Team = x.Team.Name
             }).ToList();
         }
     }
