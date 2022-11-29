@@ -38,9 +38,20 @@ namespace WorldCup.Api.Controllers.Player
         }
 
         [HttpGet("findbyname/{name}")]
-        public IActionResult GetByNameAsync(string name)
+        public IActionResult GetByName(string name)
         {
             var players = _playerService.GetNames(name);
+
+            if (players == null)
+                return Ok(_notification.GetNotifications());
+
+            return Ok(players);
+        }
+
+        [HttpGet("findbyidteam/{id}")]
+        public async Task<IActionResult> GetByIdTeam(int id)
+        {
+            var players = await _playerService.GetNamesByTeam(id);
 
             if (players == null)
                 return Ok(_notification.GetNotifications());

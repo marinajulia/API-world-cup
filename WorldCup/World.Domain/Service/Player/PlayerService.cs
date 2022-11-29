@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Xml.Linq;
 using WorldCup.Domain.Service.Player.Dto;
 using WorldCup.Infra.Repositories.Player;
@@ -42,9 +43,9 @@ namespace WorldCup.Domain.Service.Player
             }).ToList();
         }
 
-        public IEnumerable<PlayerDto> GetNamesByTeam(int idTeam)
+        public async Task<IEnumerable<PlayerDto>> GetNamesByTeam(int idTeam)
         {
-            var team = _uow.TeamRepository.GetByIdAsync(idTeam);
+            var team = await _uow.TeamRepository.GetByIdAsync(idTeam);
 
             if (team == null)
                 return _notification.AddWithReturn<IEnumerable<PlayerDto>>(UserMessagesEnum.teamNotFound.GetDescription());
