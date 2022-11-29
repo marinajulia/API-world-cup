@@ -17,11 +17,13 @@ namespace WorldCup.Api.Controllers.Team
         private readonly INotification _notification;
         private readonly ITeamService _teamService;
 
-        public TeamController(ILogger<TeamController> logger, IUnitOfWork uow, INotification notification)
+        public TeamController(ILogger<TeamController> logger, IUnitOfWork uow, INotification notification,
+            ITeamService teamService)
         {
             _logger = logger;
             _uow = uow;
             _notification = notification;
+            _teamService = teamService;
         }
 
         [HttpGet("findbyid{id}")]
@@ -34,6 +36,38 @@ namespace WorldCup.Api.Controllers.Team
 
             return Ok(team);
         }
-       
+
+        [HttpGet("getall")]
+        public IActionResult GetAll()
+        {
+            var teams = _teamService.GetAll();
+
+            if (teams == null)
+                return Ok(_notification.GetNotifications());
+
+            return Ok(teams);
+        }
+
+        [HttpGet("getname{name}")]
+        public IActionResult GetByName(string name)
+        {
+            var team = _teamService.GetName(name);
+
+            if (team == null)
+                return Ok(_notification.GetNotifications());
+
+            return Ok(team);
+        }
+
+        [HttpGet("getnameteams{name}")]
+        public IActionResult GetNames(string name)
+        {
+            var teams = _teamService.GetNames(name);
+
+            if (teams == null)
+                return Ok(_notification.GetNotifications());
+
+            return Ok(teams);
+        }
     }
 }
