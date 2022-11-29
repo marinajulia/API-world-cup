@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using WorldCup.Domain.Service.Team.Dto;
 
 namespace WorldCup.Domain.Service.Team
 {
-    public class ITeamService
+    public interface ITeamService
     {
+        IEnumerable<TeamDto> GetNames(string name);
+        IEnumerable<TeamDto> GetAll();
+        TeamDto GetName(string name);
     }
 }
