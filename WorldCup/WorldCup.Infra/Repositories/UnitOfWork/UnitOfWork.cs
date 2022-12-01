@@ -1,7 +1,9 @@
-﻿using WorldCup.Infra.Data;
+﻿using WorldCup.Domain.Service.User;
+using WorldCup.Infra.Data;
 using WorldCup.Infra.Repositories.Player;
 using WorldCup.Infra.Repositories.Team;
 using WorldCup.Infra.Repositories.UnitOfWork;
+using WorldCup.Infra.Repositories.User;
 using WorldCup.SharedKernel.Notification;
 
 namespace WorldCup.Infra.UnitOfWork
@@ -29,6 +31,8 @@ namespace WorldCup.Infra.UnitOfWork
 
         private ITeamRepository _teamRepository;
 
+        private IUserRepository _userRepository;
+
         public IPlayerRepository PlayerRepository
         {
             get => _playerRepository ?? (_playerRepository = new PlayerRepository(_context, _notification));
@@ -36,6 +40,10 @@ namespace WorldCup.Infra.UnitOfWork
         public ITeamRepository TeamRepository
         {
             get => _teamRepository ?? (_teamRepository = new TeamRepository(_context, _notification));
+        }
+        public IUserRepository UserRepository
+        {
+            get => _userRepository ?? (_userRepository = new UserRepository(_context, _notification));
         }
 
         public bool Commit()

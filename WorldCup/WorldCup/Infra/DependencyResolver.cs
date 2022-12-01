@@ -1,10 +1,12 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using WorldCup.Domain.Service.Player;
 using WorldCup.Domain.Service.Team;
+using WorldCup.Domain.Service.User;
 using WorldCup.Infra.Data;
 using WorldCup.Infra.Repositories.Player;
 using WorldCup.Infra.Repositories.Team;
 using WorldCup.Infra.Repositories.UnitOfWork;
+using WorldCup.Infra.Repositories.User;
 using WorldCup.Infra.UnitOfWork;
 using WorldCup.SharedKernel.Notification;
 
@@ -38,6 +40,7 @@ namespace WorldCup.Api.Infra
         {
             services.AddScoped<IPlayerRepository, PlayerRepository>();
             services.AddScoped<ITeamRepository, TeamRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
 
@@ -45,6 +48,7 @@ namespace WorldCup.Api.Infra
         {
             services.AddScoped<ITeamService, TeamService>();
             services.AddScoped<IPlayerService, PlayerService>();
+            services.AddScoped<IUserService, UserService>();
         }
     }
 }

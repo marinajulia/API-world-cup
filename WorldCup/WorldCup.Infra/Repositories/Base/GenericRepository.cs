@@ -6,8 +6,8 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using WorldCup.Infra.Data;
 using WorldCup.SharedKernel.Notification;
-using WorldCup.SharedKernel.UserMessages;
 using WorldCup.SharedKernel.Helper;
+using WorldCup.SharedKernel.Enuns.UserMessages;
 
 namespace WorldCup.Infra.Repositories.Base
 {

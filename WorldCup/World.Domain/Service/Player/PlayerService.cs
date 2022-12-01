@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Xml.Linq;
 using WorldCup.Domain.Service.Player.Dto;
 using WorldCup.Infra.Repositories.Player;
 using WorldCup.Infra.Repositories.Team;
 using WorldCup.Infra.Repositories.UnitOfWork;
+using WorldCup.SharedKernel.Enuns.UserMessages;
 using WorldCup.SharedKernel.Helper;
 using WorldCup.SharedKernel.Notification;
-using WorldCup.SharedKernel.UserMessages;
 
 namespace WorldCup.Domain.Service.Player
 {

@@ -38,3 +38,23 @@ C:\Users\marin\OneDrive\Área de Trabalho\github\API-world-cup\WorldCup\WorldCup
 C:\Users\marin\OneDrive\Área de Trabalho\github\API-world-cup\WorldCup\WorldCup.Infra\obj\Debug\net5.0\WorldCup.Infra.pdb
 C:\Users\marin\OneDrive\Área de Trabalho\github\API-world-cup\WorldCup\WorldCup.Infra\obj\Debug\net5.0\WorldCup.Infra.genruntimeconfig.cache
 C:\Users\marin\OneDrive\Área de Trabalho\github\API-world-cup\WorldCup\WorldCup.Infra\obj\Debug\net5.0\ref\WorldCup.Infra.dll
+C:\Users\marin\OneDrive\Área de Trabalho\copa real mesmo carai\API-world-cup\WorldCup\WorldCup.Infra\bin\Debug\net5.0\WorldCup.Infra.deps.json
+C:\Users\marin\OneDrive\Área de Trabalho\copa real mesmo carai\API-world-cup\WorldCup\WorldCup.Infra\bin\Debug\net5.0\WorldCup.Infra.runtimeconfig.json
+C:\Users\marin\OneDrive\Área de Trabalho\copa real mesmo carai\API-world-cup\WorldCup\WorldCup.Infra\bin\Debug\net5.0\WorldCup.Infra.runtimeconfig.dev.json
+C:\Users\marin\OneDrive\Área de Trabalho\copa real mesmo carai\API-world-cup\WorldCup\WorldCup.Infra\bin\Debug\net5.0\WorldCup.Infra.dll
+C:\Users\marin\OneDrive\Área de Trabalho\copa real mesmo carai\API-world-cup\WorldCup\WorldCup.Infra\bin\Debug\net5.0\WorldCup.Infra.pdb
+C:\Users\marin\OneDrive\Área de Trabalho\copa real mesmo carai\API-world-cup\WorldCup\WorldCup.Infra\bin\Debug\net5.0\WorldCup.Domain.dll
+C:\Users\marin\OneDrive\Área de Trabalho\copa real mesmo carai\API-world-cup\WorldCup\WorldCup.Infra\bin\Debug\net5.0\WorldCup.SharedKernel.dll
+C:\Users\marin\OneDrive\Área de Trabalho\copa real mesmo carai\API-world-cup\WorldCup\WorldCup.Infra\bin\Debug\net5.0\WorldCup.Domain.pdb
+C:\Users\marin\OneDrive\Área de Trabalho\copa real mesmo carai\API-world-cup\WorldCup\WorldCup.Infra\bin\Debug\net5.0\WorldCup.SharedKernel.pdb
+C:\Users\marin\OneDrive\Área de Trabalho\copa real mesmo carai\API-world-cup\WorldCup\WorldCup.Infra\obj\Debug\net5.0\WorldCup.Infra.csproj.AssemblyReference.cache
+C:\Users\marin\OneDrive\Área de Trabalho\copa real mesmo carai\API-world-cup\WorldCup\WorldCup.Infra\obj\Debug\net5.0\WorldCup.Infra.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\marin\OneDrive\Área de Trabalho\copa real mesmo carai\API-world-cup\WorldCup\WorldCup.Infra\obj\Debug\net5.0\WorldCup.Infra.AssemblyInfoInputs.cache
+C:\Users\marin\OneDrive\Área de Trabalho\copa real mesmo carai\API-world-cup\WorldCup\WorldCup.Infra\obj\Debug\net5.0\WorldCup.Infra.AssemblyInfo.cs
+C:\Users\marin\OneDrive\Área de Trabalho\copa real mesmo carai\API-world-cup\WorldCup\WorldCup.Infra\obj\Debug\net5.0\WorldCup.Infra.csproj.CoreCompileInputs.cache
+C:\Users\marin\OneDrive\Área de Trabalho\copa real mesmo carai\API-world-cup\WorldCup\WorldCup.Infra\obj\Debug\net5.0\WorldCup.Infra.csproj.CopyComplete
+C:\Users\marin\OneDrive\Área de Trabalho\copa real mesmo carai\API-world-cup\WorldCup\WorldCup.Infra\obj\Debug\net5.0\WorldCup.Infra.dll
+C:\Users\marin\OneDrive\Área de Trabalho\copa real mesmo carai\API-world-cup\WorldCup\WorldCup.Infra\obj\Debug\net5.0\refint\WorldCup.Infra.dll
+C:\Users\marin\OneDrive\Área de Trabalho\copa real mesmo carai\API-world-cup\WorldCup\WorldCup.Infra\obj\Debug\net5.0\WorldCup.Infra.pdb
+C:\Users\marin\OneDrive\Área de Trabalho\copa real mesmo carai\API-world-cup\WorldCup\WorldCup.Infra\obj\Debug\net5.0\WorldCup.Infra.genruntimeconfig.cache
+C:\Users\marin\OneDrive\Área de Trabalho\copa real mesmo carai\API-world-cup\WorldCup\WorldCup.Infra\obj\Debug\net5.0\ref\WorldCup.Infra.dll

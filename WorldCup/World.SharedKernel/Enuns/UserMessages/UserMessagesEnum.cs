@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace WorldCup.SharedKernel.UserMessages
+namespace WorldCup.SharedKernel.Enuns.UserMessages
 {
     public enum UserMessagesEnum
     {

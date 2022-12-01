@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System.Numerics;
 using System.Threading.Tasks;
 using WorldCup.Domain.Service.Player;
-using WorldCup.Infra.Repositories.Player;
 using WorldCup.Infra.Repositories.UnitOfWork;
 using WorldCup.SharedKernel.Notification;
 

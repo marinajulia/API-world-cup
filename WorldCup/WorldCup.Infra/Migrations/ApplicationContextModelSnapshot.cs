@@ -53,6 +53,24 @@ namespace WorldCup.Infra.Migrations
                     b.ToTable("Teams");
                 });
 
+            modelBuilder.Entity("WorldCup.Domain.Service.User.UserEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+                });
+
             modelBuilder.Entity("WorldCup.Domain.Service.Player.Entity.PlayerEntity", b =>
                 {
                     b.HasOne("WorldCup.Domain.Service.Team.Entity.TeamEntity", "Team")
