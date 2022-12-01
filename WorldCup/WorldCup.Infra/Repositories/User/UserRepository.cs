@@ -1,11 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using WorldCup.Domain.Service.Team.Entity;
+﻿using System.Collections.Generic;
+using System.Linq;
+using WorldCup.Domain.Common.Criptografia;
 using WorldCup.Domain.Service.User;
 using WorldCup.Domain.Service.User.Entity;
 using WorldCup.Infra.Data;
 using WorldCup.Infra.Repositories.Base;
-using WorldCup.Infra.Repositories.Team;
+using WorldCup.SharedKernel.Enuns.UserStatus;
 using WorldCup.SharedKernel.Notification;
 
 namespace WorldCup.Infra.Repositories.User
@@ -19,39 +19,51 @@ namespace WorldCup.Infra.Repositories.User
             _context = context;
         }
 
-        public IEnumerable<UserEntity> GetByName(string nome)
+        public IEnumerable<UserEntity> GetByName(string name)
         {
-            throw new System.NotImplementedException();
-        }
-
-        public UserEntity GetByStatus(int id)
-        {
-            throw new System.NotImplementedException();
+            return _context.Users.Where(x => x.Name.Trim().ToLower() == name.Trim().ToLower());
         }
 
         public UserEntity GetUser(string username, string password)
         {
-            throw new System.NotImplementedException();
+            var user = _context.Users.FirstOrDefault(x => x.Name == username &&
+                x.Password == PasswordService.Encrypt(password));
+            return user;
         }
 
         public UserEntity Post(UserEntity user)
         {
-            throw new System.NotImplementedException();
+            user.Password = PasswordService.Encrypt(user.Password);
+
+            _context.Users.Add(user);
+            _context.SaveChanges();
+
+            return user;
         }
 
         public UserEntity PutChangePassword(UserEntity user)
         {
-            throw new System.NotImplementedException();
+            user.Password = PasswordService.Encrypt(user.Password);
+            _context.Users.Update(user);
+            _context.SaveChanges();
+
+            return user; ;
         }
 
         public UserEntity PutChangeUser(UserEntity user)
         {
-            throw new System.NotImplementedException();
+            _context.Users.Update(user);
+            _context.SaveChanges();
+            return user;
         }
 
-        public void UpdateStatus(int idUsuario, int idStatus)
+        public void UpdateStatus(int idUsuario, UserStatus status)
         {
-            throw new System.NotImplementedException();
+            var user = _context.Users.FirstOrDefault(x => x.Id == idUsuario);
+
+            user.Status = status;
+
+            _context.SaveChanges();
         }
     }
 }

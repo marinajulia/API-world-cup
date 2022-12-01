@@ -12,10 +12,19 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.17",
           "Microsoft.EntityFrameworkCore.Tools": "5.0.17",
           "Swashbuckle.AspNetCore.Newtonsoft": "5.6.3",
-          "WorldCup.SharedKernel": "1.0.0"
+          "WorldCup.SharedKernel": "1.0.0",
+          "chilkat-x64": "9.5.0.93"
         },
         "runtime": {
           "WorldCup.Domain.dll": {}
+        }
+      },
+      "chilkat-x64/9.5.0.93": {
+        "runtime": {
+          "lib/net461/ChilkatDotNet46.dll": {
+            "assemblyVersion": "9.5.0.93",
+            "fileVersion": "9.5.0.93"
+          }
         }
       },
       "Humanizer.Core/2.8.26": {
@@ -961,7 +970,8 @@
       "WorldCup.SharedKernel/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.17",
-          "Swashbuckle.AspNetCore.Newtonsoft": "5.6.3"
+          "Swashbuckle.AspNetCore.Newtonsoft": "5.6.3",
+          "chilkat-x64": "9.5.0.93"
         },
         "runtime": {
           "WorldCup.SharedKernel.dll": {}
@@ -974,6 +984,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "chilkat-x64/9.5.0.93": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-scOroJ1ZHMVJw3QroKYKw4rX/EKq5EelUtYWNgs0Rgaek6AVM5609PZqEBiYkP2NmwoG5Gp6YIKCdAOMgYPJ/g==",
+      "path": "chilkat-x64/9.5.0.93",
+      "hashPath": "chilkat-x64.9.5.0.93.nupkg.sha512"
     },
     "Humanizer.Core/2.8.26": {
       "type": "package",

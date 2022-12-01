@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "6Ce1c1/tHZ6xkspfpPkKDkn8KdK/pa7+6go0eAFXqmoyTtUPDv3MvKwZ3VpS6C91j+QFK3R+NNNOwgYvbGSogw==",
+  "dgSpecHash": "ZQ8TiWL5nCsmdYFGb52dBO8sc0miZUWGs5nqLTRykOYNHRK3Xy22SSY/UdK+DLdSSLTpmeUei/xZTz2uS3H52Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\marin\\OneDrive\\Área de Trabalho\\copa real mesmo carai\\API-world-cup\\WorldCup\\World.Domain\\WorldCup.Domain.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\marin\\.nuget\\packages\\chilkat-x64\\9.5.0.93\\chilkat-x64.9.5.0.93.nupkg.sha512",
     "C:\\Users\\marin\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\marin\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.0.0\\microsoft.aspnetcore.jsonpatch.3.0.0.nupkg.sha512",
     "C:\\Users\\marin\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\3.0.0\\microsoft.aspnetcore.mvc.newtonsoftjson.3.0.0.nupkg.sha512",
@@ -105,5 +106,16 @@
     "C:\\Users\\marin\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\marin\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "O pacote 'chilkat-x64 9.5.0.93' foi restaurado usando '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' em vez da estrutura de destino do projeto 'net5.0'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
+      "libraryId": "chilkat-x64",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
 }
