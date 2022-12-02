@@ -2,6 +2,7 @@
 {
     public enum UserStatus
     { 
-        ADMIN
+        ADMIN,
+        COMMON
     }
 }
