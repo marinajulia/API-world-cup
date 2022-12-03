@@ -17,5 +17,14 @@ namespace WorldCup.SharedKernel.Enuns.UserMessages
         teamNotFound,
         [Description("Não foi encontrado nenhum jogador para este time")]
         playersNotFound,
+
+        [Description("Não foi encontrado nenhum usuário")]
+        userNotFound,
+        [Description("Usuário já bloqueado")]
+        userAlreadyBlocked,
+        [Description("Usuário já desbloqueado")]
+        userAlreadyUnblocked,
+        [Description("Usuário bloqueado com sucesso")]
+        successfullyBlockedUser,
     }
 }

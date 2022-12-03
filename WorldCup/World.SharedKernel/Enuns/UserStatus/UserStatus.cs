@@ -2,7 +2,7 @@
 {
     public enum UserStatus
     { 
-        ADMIN,
-        COMMON
+        BLOCK,
+        UNBLOCK
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using WorldCup.Domain.Service.User.Dto;
 using WorldCup.Domain.Service.User.Entity;
 using WorldCup.SharedKernel.Enuns.UserStatus;
@@ -12,8 +13,7 @@ namespace WorldCup.Domain.Service.User
         bool PutChangePassword(UserEntity user);
         bool PutChangeUser(UserEntity user);
         UserDto GetUser(string username, string password);
-        void UpdateStatus(int idUser, UserStatus status);
-        bool Block(UserDto user);
-        bool Unlock(UserDto user);
+        Task<bool> Block(UserDto user);
+        Task<bool> Unlock(UserDto user);
     }
 }

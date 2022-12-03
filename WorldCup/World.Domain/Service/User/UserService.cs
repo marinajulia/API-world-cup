@@ -1,8 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using WorldCup.Domain.Service.Team.Dto;
 using WorldCup.Domain.Service.User.Dto;
 using WorldCup.Domain.Service.User.Entity;
 using WorldCup.Infra.Repositories.UnitOfWork;
+using WorldCup.SharedKernel.Enuns.UserMessages;
 using WorldCup.SharedKernel.Enuns.UserStatus;
+using WorldCup.SharedKernel.Helper;
 using WorldCup.SharedKernel.Notification;
 
 namespace WorldCup.Domain.Service.User
@@ -20,9 +24,20 @@ namespace WorldCup.Domain.Service.User
             _userRepository = userRepository;
             _uow = uow;
         }
-        public bool Block(UserDto user)
+        public async Task<bool> Block(UserDto userDto)
         {
-            throw new System.NotImplementedException();
+            var user = await _uow.UserRepository.GetByIdAsync(userDto.Id);
+            if (user == null)
+                return _notification.AddWithReturn<bool>(UserMessagesEnum.userNotFound.GetDescription());
+
+            if (user.Status == UserStatus.BLOCK)
+                return _notification.AddWithReturn<bool>(UserMessagesEnum.userAlreadyBlocked.GetDescription());
+
+            _userRepository.UpdateStatus(user.Id, UserStatus.BLOCK);
+
+            _notification.AddWithReturn<bool>(UserMessagesEnum.successfullyBlockedUser.GetDescription());
+
+            return true;
         }
 
         public IEnumerable<UserDto> GetByName(string name)
@@ -50,14 +65,20 @@ namespace WorldCup.Domain.Service.User
             throw new System.NotImplementedException();
         }
 
-        public bool Unlock(UserDto user)
+        public async Task<bool> Unlock(UserDto userDto)
         {
-            throw new System.NotImplementedException();
-        }
+            var user = await _uow.UserRepository.GetByIdAsync(userDto.Id);
+            if (user == null)
+                return _notification.AddWithReturn<bool>(UserMessagesEnum.userNotFound.GetDescription());
 
-        public void UpdateStatus(int idUser, UserStatus status)
-        {
-            throw new System.NotImplementedException();
+            if (user.Status == UserStatus.UNBLOCK)
+                return _notification.AddWithReturn<bool>(UserMessagesEnum.userAlreadyUnblocked.GetDescription());
+
+            _userRepository.UpdateStatus(user.Id, UserStatus.UNBLOCK);
+
+            _notification.AddWithReturn<bool>(UserMessagesEnum.successfullyBlockedUser.GetDescription());
+
+            return true;
         }
     }
 }
