@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
-using WorldCup.Domain.Service.Team.Dto;
 using WorldCup.Domain.Service.User.Dto;
 using WorldCup.Domain.Service.User.Entity;
 using WorldCup.Infra.Repositories.UnitOfWork;
@@ -42,25 +42,50 @@ namespace WorldCup.Domain.Service.User
 
         public IEnumerable<UserDto> GetByName(string name)
         {
-            throw new System.NotImplementedException();
+            var user = _userRepository.GetByName(name);
+
+            if(user == null)
+                _notification.AddWithReturn<bool>(UserMessagesEnum.userNotFound.GetDescription());
+
+            return user.Select(x => new UserDto
+            {
+                Id = x.Id,
+                Name = x.Name,
+                Status = x.Status,
+            }).ToList(); ;
         }
 
-        public UserDto GetUser(string username, string password)
+        public void Login(UserEntity user)
         {
-            throw new System.NotImplementedException();
+            if (string.IsNullOrEmpty(user.Name)|| string.IsNullOrEmpty(user.Password))
+                _notification.AddWithReturn<bool>(UserMessagesEnum.emptyFields.GetDescription());
+
+            var usuarioData = _userRepository.GetUser(user.Name, user.Password);
+            if (usuarioData == null)
+                _notification.AddWithReturn<bool>(UserMessagesEnum.incorrectUsernameOrPassword.GetDescription());
+
+            _notification.AddWithReturn<bool>(UserMessagesEnum.userLoggedInSuccessfully.GetDescription());
         }
 
-        public bool Post(UserEntity user)
+        public async Task<bool> ChangePassword(UserEntity userEntity)
         {
-            throw new System.NotImplementedException();
+            if (string.IsNullOrEmpty(userEntity.Name))
+                _notification.AddWithReturn<bool>(UserMessagesEnum.emptyFields.GetDescription());
+
+            var user = await _uow.UserRepository.GetByIdAsync(userEntity.Id);
+            if (user == null)
+                return _notification.AddWithReturn<bool>(UserMessagesEnum.userNotFound.GetDescription());
+
+            user.Password = userEntity.Password;
+            _userRepository.PutChangePassword(user);
+
+            if(user == null)
+                return _notification.AddWithReturn<bool>(UserMessagesEnum.UnableToChangePassword.GetDescription());
+
+            return _notification.AddWithReturn<bool>(UserMessagesEnum.PasswordChangedSuccessfully.GetDescription());
         }
 
-        public bool PutChangePassword(UserEntity user)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public bool PutChangeUser(UserEntity user)
+        public bool ChangeUser(UserEntity user)
         {
             throw new System.NotImplementedException();
         }

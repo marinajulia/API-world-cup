@@ -2,17 +2,15 @@
 using System.Threading.Tasks;
 using WorldCup.Domain.Service.User.Dto;
 using WorldCup.Domain.Service.User.Entity;
-using WorldCup.SharedKernel.Enuns.UserStatus;
 
 namespace WorldCup.Domain.Service.User
 {
     public interface IUserService
     {
-        bool Post(UserEntity user);
+        void Login(UserEntity user);
         IEnumerable<UserDto> GetByName(string name);
-        bool PutChangePassword(UserEntity user);
-        bool PutChangeUser(UserEntity user);
-        UserDto GetUser(string username, string password);
+        Task<bool> ChangePassword(UserEntity user);
+        bool ChangeUser(UserEntity user);
         Task<bool> Block(UserDto user);
         Task<bool> Unlock(UserDto user);
     }

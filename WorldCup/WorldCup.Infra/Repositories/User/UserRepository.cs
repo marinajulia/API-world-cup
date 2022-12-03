@@ -47,7 +47,7 @@ namespace WorldCup.Infra.Repositories.User
             _context.Users.Update(user);
             _context.SaveChanges();
 
-            return user; ;
+            return user;
         }
 
         public UserEntity PutChangeUser(UserEntity user)

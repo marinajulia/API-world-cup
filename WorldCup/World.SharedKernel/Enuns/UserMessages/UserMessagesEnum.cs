@@ -26,5 +26,15 @@ namespace WorldCup.SharedKernel.Enuns.UserMessages
         userAlreadyUnblocked,
         [Description("Usuário bloqueado com sucesso")]
         successfullyBlockedUser,
+        [Description("Existem campos vazios!")]
+        emptyFields,
+        [Description("Usuário ou senha incorretos!")]
+        incorrectUsernameOrPassword,
+        [Description("Usuário logado com sucesso!")]
+        userLoggedInSuccessfully,
+        [Description("Não foi possível alterar a senha")]
+        UnableToChangePassword,
+        [Description("Senha alterada com sucesso")]
+        PasswordChangedSuccessfully,
     }
 }
