@@ -42,10 +42,10 @@ namespace WorldCup.Domain.Service.User
 
         public IEnumerable<UserDto> GetByName(string name)
         {
-            var user = _userRepository.GetByName(name);
+            var user = _userRepository.GetNames(name);
 
             if(user == null)
-                _notification.AddWithReturn<bool>(UserMessagesEnum.userNotFound.GetDescription());
+               return _notification.AddWithReturn<IEnumerable<UserDto>>(UserMessagesEnum.userNotFound.GetDescription());
 
             return user.Select(x => new UserDto
             {
@@ -55,22 +55,23 @@ namespace WorldCup.Domain.Service.User
             }).ToList(); ;
         }
 
-        public void Login(UserEntity user)
+        public bool Login(UserEntity user)
         {
             if (string.IsNullOrEmpty(user.Name)|| string.IsNullOrEmpty(user.Password))
-                _notification.AddWithReturn<bool>(UserMessagesEnum.emptyFields.GetDescription());
+                return _notification.AddWithReturn<bool>(UserMessagesEnum.emptyFields.GetDescription());
 
             var usuarioData = _userRepository.GetUser(user.Name, user.Password);
             if (usuarioData == null)
-                _notification.AddWithReturn<bool>(UserMessagesEnum.incorrectUsernameOrPassword.GetDescription());
+                return _notification.AddWithReturn<bool>(UserMessagesEnum.incorrectUsernameOrPassword.GetDescription());
 
             _notification.AddWithReturn<bool>(UserMessagesEnum.userLoggedInSuccessfully.GetDescription());
+            return true;
         }
 
         public async Task<bool> ChangePassword(UserEntity userEntity)
         {
             if (string.IsNullOrEmpty(userEntity.Name))
-                _notification.AddWithReturn<bool>(UserMessagesEnum.emptyFields.GetDescription());
+                return _notification.AddWithReturn<bool>(UserMessagesEnum.emptyFields.GetDescription());
 
             var user = await _uow.UserRepository.GetByIdAsync(userEntity.Id);
             if (user == null)
@@ -107,13 +108,14 @@ namespace WorldCup.Domain.Service.User
             if (verifyUser != null)
                 return _notification.AddWithReturn<bool>(UserMessagesEnum.userAlreadyExists.GetDescription());
 
-            if (string.IsNullOrEmpty(user.Name) || string.IsNullOrEmpty(user.Password))
+            if (string.IsNullOrEmpty(user.Name) || string.IsNullOrEmpty(user.Password) || string.IsNullOrEmpty(user.Email))
                 return _notification.AddWithReturn<bool>(UserMessagesEnum.emptyFields.GetDescription());
 
             _userRepository.Post(new UserEntity
             {
                 Name = user.Name,
                 Password = user.Password,
+                Email = user.Email,
                 Status = UserStatus.BLOCK
             });
             _notification.AddWithReturn<bool>(UserMessagesEnum.successfullyRegisteredUser.GetDescription());

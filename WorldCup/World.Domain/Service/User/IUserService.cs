@@ -7,7 +7,7 @@ namespace WorldCup.Domain.Service.User
 {
     public interface IUserService
     {
-        void Login(UserEntity user);
+        bool Login(UserEntity user);
         IEnumerable<UserDto> GetByName(string name);
         Task<bool> ChangePassword(UserEntity user);
         Task<bool> Block(UserDto user);

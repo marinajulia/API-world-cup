@@ -19,9 +19,14 @@ namespace WorldCup.Infra.Repositories.User
             _context = context;
         }
 
-        public IEnumerable<UserEntity> GetByName(string name)
+        public UserEntity GetByName(string name)
         {
-            return _context.Users.Where(x => x.Name.Trim().ToLower() == name.Trim().ToLower());
+            return _context.Users.FirstOrDefault(x => x.Name.Trim().ToLower() == name.Trim().ToLower());
+        }
+
+        public IEnumerable<UserEntity> GetNames(string name)
+        {
+            return _context.Users.Where(x => x.Name.Trim().ToLower().Contains(name.Trim().ToLower()));
         }
 
         public UserEntity GetUser(string username, string password)

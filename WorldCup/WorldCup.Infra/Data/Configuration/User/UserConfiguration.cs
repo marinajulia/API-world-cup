@@ -13,6 +13,7 @@ namespace WorldCup.Infra.Data.Configuration.User
             builder.Property(p => p.Name).IsRequired();
             builder.Property(p => p.Status).IsRequired();
             builder.Property(p => p.Password).IsRequired();
+            builder.Property(p => p.Email).IsRequired();
         }
     }
 }
