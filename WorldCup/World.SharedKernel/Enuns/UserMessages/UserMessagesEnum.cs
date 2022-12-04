@@ -36,5 +36,9 @@ namespace WorldCup.SharedKernel.Enuns.UserMessages
         UnableToChangePassword,
         [Description("Senha alterada com sucesso")]
         PasswordChangedSuccessfully,
+        [Description("Usuário já existe no sistema")]
+        userAlreadyExists,
+        [Description("Usuário cadastrado com sucesso")]
+        successfullyRegisteredUser,
     }
 }

@@ -10,8 +10,8 @@ namespace WorldCup.Domain.Service.User
         void Login(UserEntity user);
         IEnumerable<UserDto> GetByName(string name);
         Task<bool> ChangePassword(UserEntity user);
-        bool ChangeUser(UserEntity user);
         Task<bool> Block(UserDto user);
         Task<bool> Unlock(UserDto user);
+        bool UserRegistration(UserEntity user);
     }
 }
