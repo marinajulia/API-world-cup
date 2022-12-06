@@ -24,9 +24,9 @@ namespace WorldCup.Domain.Service.User
             _userRepository = userRepository;
             _uow = uow;
         }
-        public async Task<bool> Block(UserDto userDto)
+        public async Task<bool> Block(int idUser)
         {
-            var user = await _uow.UserRepository.GetByIdAsync(userDto.Id);
+            var user = await _uow.UserRepository.GetByIdAsync(idUser);
             if (user == null)
                 return _notification.AddWithReturn<bool>(UserMessagesEnum.userNotFound.GetDescription());
 
@@ -52,20 +52,20 @@ namespace WorldCup.Domain.Service.User
                 Id = x.Id,
                 Name = x.Name,
                 Status = x.Status,
-            }).ToList(); ;
+            }).ToList();
         }
 
-        public bool Login(UserEntity user)
+        public UserEntity Login(string name, string password)
         {
-            if (string.IsNullOrEmpty(user.Name)|| string.IsNullOrEmpty(user.Password))
-                return _notification.AddWithReturn<bool>(UserMessagesEnum.emptyFields.GetDescription());
+            if (string.IsNullOrEmpty(name)|| string.IsNullOrEmpty(password))
+                return _notification.AddWithReturn<UserEntity>(UserMessagesEnum.emptyFields.GetDescription());
 
-            var usuarioData = _userRepository.GetUser(user.Name, user.Password);
-            if (usuarioData == null)
-                return _notification.AddWithReturn<bool>(UserMessagesEnum.incorrectUsernameOrPassword.GetDescription());
+            var user = _userRepository.GetUser(name, password);
+            if (user == null)
+                return _notification.AddWithReturn<UserEntity>(UserMessagesEnum.incorrectUsernameOrPassword.GetDescription());
 
             _notification.AddWithReturn<bool>(UserMessagesEnum.userLoggedInSuccessfully.GetDescription());
-            return true;
+            return user;
         }
 
         public async Task<bool> ChangePassword(UserEntity userEntity)
@@ -86,9 +86,9 @@ namespace WorldCup.Domain.Service.User
             return _notification.AddWithReturn<bool>(UserMessagesEnum.PasswordChangedSuccessfully.GetDescription());
         }
 
-        public async Task<bool> Unlock(UserDto userDto)
+        public async Task<bool> Unlock(int idUser)
         {
-            var user = await _uow.UserRepository.GetByIdAsync(userDto.Id);
+            var user = await _uow.UserRepository.GetByIdAsync(idUser);
             if (user == null)
                 return _notification.AddWithReturn<bool>(UserMessagesEnum.userNotFound.GetDescription());
 
@@ -102,21 +102,21 @@ namespace WorldCup.Domain.Service.User
             return true;
         }
 
-        public bool UserRegistration(UserEntity user)
+        public bool UserRegistration(string name, string password, string email)
         {
-            var verifyUser = _userRepository.GetByName(user.Name);
+            var verifyUser = _userRepository.GetByName(name);
             if (verifyUser != null)
                 return _notification.AddWithReturn<bool>(UserMessagesEnum.userAlreadyExists.GetDescription());
 
-            if (string.IsNullOrEmpty(user.Name) || string.IsNullOrEmpty(user.Password) || string.IsNullOrEmpty(user.Email))
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(email))
                 return _notification.AddWithReturn<bool>(UserMessagesEnum.emptyFields.GetDescription());
 
             _userRepository.Post(new UserEntity
             {
-                Name = user.Name,
-                Password = user.Password,
-                Email = user.Email,
-                Status = UserStatus.BLOCK
+                Name = name,
+                Password = password,
+                Email = email,
+                Status = UserStatus.UNBLOCK
             });
             _notification.AddWithReturn<bool>(UserMessagesEnum.successfullyRegisteredUser.GetDescription());
 

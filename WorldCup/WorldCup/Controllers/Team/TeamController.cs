@@ -37,7 +37,7 @@ namespace WorldCup.Api.Controllers.Team
             return Ok(team);
         }
 
-        [HttpGet("getall")]
+        [HttpGet]
         public IActionResult GetAll()
         {
             var teams = _teamService.GetAll();

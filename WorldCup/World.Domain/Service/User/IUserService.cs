@@ -7,11 +7,11 @@ namespace WorldCup.Domain.Service.User
 {
     public interface IUserService
     {
-        bool Login(UserEntity user);
+        UserEntity Login(string name, string password);
         IEnumerable<UserDto> GetByName(string name);
         Task<bool> ChangePassword(UserEntity user);
-        Task<bool> Block(UserDto user);
-        Task<bool> Unlock(UserDto user);
-        bool UserRegistration(UserEntity user);
+        Task<bool> Block(int idUser);
+        Task<bool> Unlock(int idUser);
+        bool UserRegistration(string name, string password, string email);
     }
 }
