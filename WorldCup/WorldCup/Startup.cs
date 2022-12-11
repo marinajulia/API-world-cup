@@ -9,7 +9,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json.Linq;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +20,7 @@ using WorldCup.Domain.Common.Token;
 using WorldCup.Domain.Service.User;
 using WorldCup.Infra.Data;
 using WorldCup.SharedKernel.UserLoggedData;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace WorldCup
 {
@@ -42,7 +45,31 @@ namespace WorldCup
                 });
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "EFCore.ApiWorldCup", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "WordCup", Version = "v1" });
+
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
+                {
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.ApiKey,
+                    Scheme = "Bearer",
+                    BearerFormat = "JWT",
+                    In = ParameterLocation.Header,
+                    Description = "Wordcup API",
+                });
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                          new OpenApiSecurityScheme
+                          {
+                              Reference = new OpenApiReference
+                              {
+                                  Type = ReferenceType.SecurityScheme,
+                                  Id = "Bearer"
+                              }
+                          },
+                         new string[] {}
+                    }
+                });
             });
 
             services.AddDbContext<ApplicationContext>(p => p.UseSqlServer(@"Data Source=DESKTOP-RTPBNVC\SQLEXPRESS;Initial Catalog=WorldCupAPI3;Integrated Security=True;")
