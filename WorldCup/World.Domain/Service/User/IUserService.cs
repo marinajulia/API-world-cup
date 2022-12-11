@@ -13,5 +13,6 @@ namespace WorldCup.Domain.Service.User
         Task<bool> Block(int idUser);
         Task<bool> Unlock(int idUser);
         bool UserRegistration(string name, string password, string email);
+        bool Allow(int idUser);
     }
 }

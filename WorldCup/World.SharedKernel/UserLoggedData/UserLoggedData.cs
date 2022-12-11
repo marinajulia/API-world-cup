@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using WorldCup.SharedKernel.Enuns.UserPermissions;
 
 namespace WorldCup.SharedKernel.UserLoggedData
 {
@@ -12,12 +13,12 @@ namespace WorldCup.SharedKernel.UserLoggedData
             _data = new List<DataToken>();
         }
 
-        public void Add(int idUsuario, int idPerfilUsuario)
+        public void Add(int idUser, UserPermissions Permission)
         {
             _data.Add(new DataToken
             {
-                Id_PerfilUsuario = idPerfilUsuario,
-                Id_Usuario = idUsuario
+                UserId = idUser,
+                UserPermission = Permission
             });
         }
 
@@ -28,7 +29,7 @@ namespace WorldCup.SharedKernel.UserLoggedData
     }
     public class DataToken
     {
-        public int Id_Usuario { get; set; }
-        public int Id_PerfilUsuario { get; set; }
+        public int UserId { get; set; }
+        public UserPermissions UserPermission { get; set; }
     }
 }

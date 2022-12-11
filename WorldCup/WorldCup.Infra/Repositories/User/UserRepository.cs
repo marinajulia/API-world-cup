@@ -70,5 +70,10 @@ namespace WorldCup.Infra.Repositories.User
 
             _context.SaveChanges();
         }
+
+        public UserEntity GetById(int id)
+        {
+            return _context.Users.FirstOrDefault(x => x.Id == id);
+        }
     }
 }

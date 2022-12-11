@@ -9,8 +9,8 @@ using WorldCup.Infra.Data;
 namespace WorldCup.Infra.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20221201191150_2")]
-    partial class _2
+    [Migration("20221211190116_1")]
+    partial class _1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -55,15 +55,24 @@ namespace WorldCup.Infra.Migrations
                     b.ToTable("Teams");
                 });
 
-            modelBuilder.Entity("WorldCup.Domain.Service.User.UserEntity", b =>
+            modelBuilder.Entity("WorldCup.Domain.Service.User.Entity.UserEntity", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Permission")
+                        .HasColumnType("int");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");

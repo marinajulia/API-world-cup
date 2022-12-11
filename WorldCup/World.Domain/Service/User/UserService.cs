@@ -8,6 +8,7 @@ using WorldCup.SharedKernel.Enuns.UserMessages;
 using WorldCup.SharedKernel.Enuns.UserStatus;
 using WorldCup.SharedKernel.Helper;
 using WorldCup.SharedKernel.Notification;
+using WorldCup.SharedKernel.UserLoggedData;
 
 namespace WorldCup.Domain.Service.User
 {
@@ -16,13 +17,15 @@ namespace WorldCup.Domain.Service.User
         private readonly INotification _notification;
         private readonly IUserRepository _userRepository;
         private readonly IUnitOfWork _uow;
+        private readonly UserLoggedData _userLoggedData;
 
         public UserService(INotification notification, IUserRepository userRepository,
-            IUnitOfWork uow)
+            IUnitOfWork uow, UserLoggedData userLoggedData)
         {
             _notification = notification;
             _userRepository = userRepository;
             _uow = uow;
+            _userLoggedData = userLoggedData;
         }
         public async Task<bool> Block(int idUser)
         {
@@ -39,7 +42,16 @@ namespace WorldCup.Domain.Service.User
 
             return true;
         }
+        public bool Allow(int idUser)
+        {
+            var user = _userRepository.GetById(idUser);
+            if (user == null)
+                return _notification.AddWithReturn<bool>(UserMessagesEnum.incorrectUsernameOrPassword.GetDescription());
 
+            _userLoggedData.Add(user.Id, user.Permission);
+
+            return true;
+        }
         public IEnumerable<UserDto> GetByName(string name)
         {
             var user = _userRepository.GetNames(name);

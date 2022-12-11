@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using WorldCup.Api.Controllers.Team;
 using WorldCup.Domain.Common.Token;
 using WorldCup.Domain.Service.User;
-using WorldCup.Domain.Service.User.Entity;
 using WorldCup.Infra.Repositories.UnitOfWork;
 using WorldCup.SharedKernel.Notification;
 
@@ -38,7 +37,7 @@ namespace WorldCup.Api.Controllers.User
                 return BadRequest(_notification.GetNotifications());
 
             var token = TokenService.GenerateToken(user);
-             
+
             return Ok(token);
         }
 
@@ -54,7 +53,7 @@ namespace WorldCup.Api.Controllers.User
         }
 
         [HttpPost("block")]
-        //[Authorize]
+        [Authorize]
         public async Task<IActionResult> Block(int idUser)
         {
             var response = await _userService.Block(idUser);

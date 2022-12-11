@@ -14,5 +14,6 @@ namespace WorldCup.Domain.Service.User
         UserEntity PutChangeUser(UserEntity user);
         UserEntity GetUser(string username, string password);
         void UpdateStatus(int idUser, UserStatus status);
+        UserEntity GetById(int id);
     }
 }

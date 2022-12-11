@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using WorldCup.SharedKernel.Enuns.UserPermissions;
 using WorldCup.SharedKernel.Enuns.UserStatus;
 
 namespace WorldCup.Domain.Service.User.Entity
@@ -11,5 +12,6 @@ namespace WorldCup.Domain.Service.User.Entity
         public string Email { get; set; }
         public string Password { get; set; }
         public UserStatus Status { get; set; }
+        public UserPermissions Permission { get; set; }
     }
 }
